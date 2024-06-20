@@ -33,6 +33,7 @@ import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { ListCategoriaComponent } from './Component/list-categoria/list-categoria.component';
 import { RegistroComponent } from './Dialogs/registro/registro.component';
 import { SobreNosotrosComponent } from './Component/sobre-nosotros/sobre-nosotros.component';
+import { CarouselProductoModule } from './Component/carousel-producto/carousel-producto.module';
 
 
 @NgModule({
@@ -71,7 +72,8 @@ import { SobreNosotrosComponent } from './Component/sobre-nosotros/sobre-nosotro
     MdbScrollspyModule,
     MdbTabsModule,
     MdbTooltipModule,
-    MdbValidationModule
+    MdbValidationModule,
+    CarouselProductoModule
   ],
   providers: [MdbModalService],
   bootstrap: [AppComponent]
