@@ -1,12 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { IPersona } from '../Modelo/persona.modelo';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonaService {
+
+  private usuarioActualSource = new BehaviorSubject<string>('Hola');
+  usuarioActual = this.usuarioActualSource.asObservable();
 
   private baseUrl = 'http://localhost:8080';
 
@@ -18,6 +21,10 @@ export class PersonaService {
 
   agregarPersona(datos:any){
     return this._httpclient.post<IPersona>(`${this.baseUrl}/personas`,datos)
+  }
+
+  actualizarUsuario(usuario: string) {
+    this.usuarioActualSource.next(usuario);
   }
 
 }

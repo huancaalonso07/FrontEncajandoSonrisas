@@ -13,6 +13,9 @@ import { RegistroComponent } from '../registro/registro.component';
 })
 export class LoginComponent{
 
+  
+  usuarioActual:string = "";
+
   listaPersonas:IPersona[] = [];
   mostrarError?:boolean ;  
   mostrarContrasena = false;
@@ -66,10 +69,14 @@ export class LoginComponent{
 
       data.forEach((per)=>{
         if(per.correo === usuario && per.password === contrasena){
+          this.usuarioActual = per.nombres;
           console.log("persona correcta");
+          console.log(this.usuarioActual);
+          this._personaService.actualizarUsuario(this.usuarioActual);  // Actualizar el servicio
           credencialesValidas = true;
-          this.router.navigateByUrl("/categoria")
+          this.router.navigateByUrl("");
           this.close(); 
+          
         }
 
       });

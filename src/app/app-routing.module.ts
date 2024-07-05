@@ -8,7 +8,7 @@ const routes: Routes = [
 
   { path:'categoria/:idp/:nombreC', component:PaginaCategoriaComponent },
   { path:'producto/:id',component:ProductoComponent},
-  { path:'', component:PaginaHomeComponent }
+  { path:'', component:PaginaHomeComponent },
 ];
 
 @NgModule({
